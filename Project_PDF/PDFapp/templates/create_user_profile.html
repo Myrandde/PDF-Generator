@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<title>Generate PDF</title>
+</head>
+<body class="flex justify-center items-center min-h-screen text-blue-200">
+	<div class="flex flex-col justify-center items-center bg-blue-600 p-10 rounded-lg">
+		<h1>Generate and Download PDF</h1>
+		<h2>Add a New Book</h2>
+		<form method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit">Add Book</button>
+		</form>
+		<p><a href="{% url 'generate_pdf' %}" download>Download Book Catalog (PDF)</a></p>
+		<br>
+		<!-- <p><a href="{% url 'generate_pdf' %}" download>Download Book Catalog (CSV)</a></p> -->
+	</div>
+</body>
+</html>
