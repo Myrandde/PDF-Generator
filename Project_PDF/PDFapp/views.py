@@ -32,13 +32,20 @@ def generate_pdf_file():
 
 	# Create a PDF document
 	books = Book.objects.all()
+
+	p.setLineWidth(1)
+	p.setStrokeColorRGB(0,0,0)
+	p.line(100, 750, 700, 750)
 	p.drawString(100, 750, "Book Catalog")
 
 	y = 700
 	for book in books:
 		p.drawString(100, y, f"Title: {book.title}")
 		p.drawString(100, y - 20, f"Author: {book.author}")
-		p.drawString(100, y - 40, f"Year: {book.publication_year}")
+		p.drawString(100, y - 40, f"Year: {book.publication_year}")	
+		p.setLineWidth(1)
+		p.setStrokeColorRGB(0,0,0)
+		p.line(100, y - 50, 700, y - 50)
 		y -= 60
 
 	p.showPage()
